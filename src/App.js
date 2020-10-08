@@ -9,6 +9,7 @@ import { Tween } from 'gsap/gsap-core';
 function App() {
 
   let app = useRef(null);
+  let circleBox = useRef(null);
   let circle = useRef(null);
   let circleRed = useRef(null);
   let circleBlue = useRef(null);
@@ -33,12 +34,14 @@ function App() {
 
     updateState();
     if (!state) {
-      TweenMax.to(circleRed, .8, {width: 200, height: 200, ease: Power3.easeOut})
-      console.log(state)
-      return
+      TweenMax.to(circleRed, .8, {width: 200, height: 200, ease: Power3.easeOut});
+      TweenMax.to(circleBox, .8, {css: {visibility: 'visible'}})
+      console.log(state);
+      return;
     }
-    TweenMax.to(circleRed, .8, {width: 75, height: 75, ease: Power3.easeOut})
-    console.log(state)
+    TweenMax.to(circleRed, .8, {width: 75, height: 75, ease: Power3.easeOut});
+    TweenMax.to(circleBox, .8, {css: {visibility: 'hidden'}})
+    console.log(state);
   };
 
   return (
@@ -51,11 +54,16 @@ function App() {
           <div
             ref={el => circle = el} 
             className="circle"></div>
+          <div 
+            ref={el => circleBox = el}
+            className="circle-box"
+          >
+          </div>
           <div
-            ref={el => circleRed = el} 
-            className="circle red"
-            onClick={handleExpand}  
-          ></div>
+              ref={el => circleRed = el} 
+              className="circle red"
+              onClick={handleExpand}  
+            ></div>
           <div
             ref={el => circleBlue = el} 
             className="circle blue"></div>
