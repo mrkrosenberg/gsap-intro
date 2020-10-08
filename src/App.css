@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  visibility: hidden;
 }
 
 .App-logo {
@@ -24,15 +25,18 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.circle {
+  height: 75px;
+  width: 75px;
+  border-radius: 100%;
+  background-color: yellow;
+  margin: 50px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.red {
+  background-color: red;
+}
+
+.blue {
+  background-color: blue;
 }
